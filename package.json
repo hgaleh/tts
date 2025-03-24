@@ -2,7 +2,7 @@
   "name": "tts",
   "version": "1.0.0",
   "main": "index.js",
-  "bin": "./index.js",
+  "bin": "./dist/index.js",
   "license": "MIT",
   "type": "commonjs",
   "dependencies": {
@@ -10,5 +10,13 @@
     "dotenv": "^16.4.7",
     "microsoft-cognitiveservices-speech-sdk": "^1.43.0",
     "node-fetch": "^3.3.2"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.3",
+    "@types/node": "^22.13.13",
+    "typescript": "^5.8.2"
   }
 }
