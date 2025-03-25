@@ -1,12 +1,15 @@
 #!/usr/bin/env node
-
+import path from 'path';
 import dotenv from 'dotenv';
+
+dotenv.config({
+    path: path.resolve(__dirname, '../.env')
+});
+
 import { getSpeech } from './get-speech';
 import { translate } from './translate';
 import { appendToFile } from './append-to-file';
-import path from 'path';
 
-dotenv.config();
 
 (async () => {
     const text = process.argv.slice(2).join(" ") || "Dies ist ein Beispieltext.";
@@ -17,5 +20,4 @@ dotenv.config();
     const speech = await getSpeech(text, ankiMediaAddress, speechKey);
     const translation = await translate(text, translationKey);
     await appendToFile(fileName, text, translation, speech);
-    console.log({speech, translation});
 })()
